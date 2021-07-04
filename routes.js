@@ -3,7 +3,8 @@ const routes = [
         method: `GET`,
         path: '/',
         handler: (request,h) => {
-            return 'hello world';
+            const response = h.response('success').type('application/json').header('X-custom', 'some-value');
+            return response;
         }
     },
     {

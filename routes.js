@@ -28,8 +28,16 @@ const routes = [
         }
     },
     {
+        method: `GET`,
+        path: '/users/{username?}',
+        handler: (request,h) => {
+            const {username="Stranger"} = request.params;
+            return `hai, ${username}`;
+        }
+    },
+    {
         method: `*`,
-        path: `/{*any}`,
+        path: `/{any*}`,
         handler: (request,h)=>{
             return 'Halaman tidak ditemukan';
         }

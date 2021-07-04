@@ -36,6 +36,18 @@ const routes = [
         }
     },
     {
+        method: `GET`,
+        path: '/hello/{name?}',
+        handler: (request,h) => {
+            const {username="Stranger"} = request.params;
+            const {lang}= request.query;
+            if (lang === 'id'){
+                return `hai, ${username}`;
+            }
+            return `hello, ${username}`;
+        }
+    },
+    {
         method: `*`,
         path: `/{any*}`,
         handler: (request,h)=>{
